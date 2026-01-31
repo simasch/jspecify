@@ -89,6 +89,12 @@
                         <arg>-Xplugin:ErrorProne -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify
                             -XepExcludedPaths:.*/target/generated-sources/.* -Xep:JavaTimeDefaultTimeZone:OFF
                         </arg>
+                        <!--
+                        <arg>-Xplugin:ErrorProne -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify.safe
+                            -XepOpt:NullAway:UnannotatedSubPackages=ch.martinelli.demo.jspecify.unsafe
+                            -XepExcludedPaths:.*/target/generated-sources/.* -Xep:JavaTimeDefaultTimeZone:OFF
+                        </arg>
+                        -->
                     </compilerArgs>
                     <failOnWarning>true</failOnWarning>
                     <annotationProcessorPaths>
