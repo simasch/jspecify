@@ -1,13 +1,9 @@
 package ch.martinelli.demo.jspecify.safe;
 
 import org.jspecify.annotations.Nullable;
+import org.springframework.data.repository.ListCrudRepository;
 
-public class EmployeeRepository {
+public interface EmployeeRepository extends ListCrudRepository<Employee, Long> {
 
-    public @Nullable Employee findByName(String name) {
-        if ("Simon".equals(name)) {
-            return new Employee("Simon", "simon@example.com");
-        }
-        return null; // Safe - callers MUST check for null!
-    }
+    @Nullable Employee findByName(String name);
 }
