@@ -105,6 +105,7 @@
                         </arg>
                         -->
                     </compilerArgs>
+                    <!-- Any warning from Error Prone or NullAway will fail the build. This enforces strict compliance. -->
                     <failOnWarning>true</failOnWarning>
                     <annotationProcessorPaths>
                         <path>
