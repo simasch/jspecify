@@ -30,7 +30,7 @@
     <properties>
         <java.version>25</java.version>
         <errorprone.version>2.48.0</errorprone.version>
-        <nullaway.version>0.13.1</nullaway.version>
+        <nullaway.version>0.13.2</nullaway.version>
     </properties>
 
     <dependencies>
