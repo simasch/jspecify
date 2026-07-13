@@ -38,7 +38,7 @@ This is a Spring Boot 4.0.2 demonstration project exploring **Java null-safety**
 The project enforces strict null-safety checking:
 
 - **NullAway** is configured to scan `ch.martinelli.demo.jspecify` package
-- **`failOnWarning=true`** - All null-safety warnings are treated as compile errors
+- **`-Xep:NullAway:ERROR`** - NullAway violations are reported as real compile errors
 - Use `@Nullable` for parameters/return types that can be null
 - Unannotated types are assumed non-null by default
 - `.mvn/jvm.config` contains required `--add-exports`/`--add-opens` for Error Prone on Java 9+
