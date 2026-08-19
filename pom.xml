@@ -29,8 +29,8 @@
 
     <properties>
         <java.version>25</java.version>
-        <errorprone.version>2.49.0</errorprone.version>
-        <nullaway.version>0.13.4</nullaway.version>
+        <errorprone.version>2.50.0</errorprone.version>
+        <nullaway.version>0.13.8</nullaway.version>
     </properties>
 
     <dependencies>
@@ -84,30 +84,13 @@
                 <configuration>
                     <release>${java.version}</release>
                     <compilerArgs>
-                        <!--  Tells the compiler to process files one by one (needed for Error Prone) -->
                         <arg>-XDcompilePolicy=simple</arg>
-                        <!-- Stops compilation at the FLOW phase if errors occur -->
                         <arg>--should-stop=ifError=FLOW</arg>
-                        <!--
-                        - NullAway violations are reported as compile errors, not warnings
-                        - NullAway will check this package for null safety. Classes here must use @Nullable annotations properly.
-                        - Skips generated code from analysis
-                        - Disables the check that warns about LocalDateTime.now() without explicit timezone
-                        -->
-                        <arg>-Xplugin:ErrorProne -Xep:NullAway:ERROR
-                            -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify
+                        <arg>-Xplugin:ErrorProne -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify
                             -XepExcludedPaths:.*/target/generated-sources/.* -Xep:JavaTimeDefaultTimeZone:OFF
                         </arg>
-                        <!--
-                         - AnnotatedPackages would only check the .safe subpackage
-                         - UnannotatedSubPackages would exclude the .unsafe subpackage from strict null checking
-                        <arg>-Xplugin:ErrorProne -Xep:NullAway:ERROR
-                            -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify.safe
-                            -XepOpt:NullAway:UnannotatedSubPackages=ch.martinelli.demo.jspecify.unsafe
-                            -XepExcludedPaths:.*/target/generated-sources/.* -Xep:JavaTimeDefaultTimeZone:OFF
-                        </arg>
-                        -->
                     </compilerArgs>
+                    <failOnWarning>true</failOnWarning>
                     <annotationProcessorPaths>
                         <path>
                             <groupId>com.google.errorprone</groupId>
