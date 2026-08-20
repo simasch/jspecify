@@ -86,9 +86,7 @@
                     <compilerArgs>
                         <arg>-XDcompilePolicy=simple</arg>
                         <arg>--should-stop=ifError=FLOW</arg>
-                        <arg>-Xplugin:ErrorProne -XepOpt:NullAway:AnnotatedPackages=ch.martinelli.demo.jspecify
-                            -XepExcludedPaths:.*/target/generated-sources/.* -Xep:JavaTimeDefaultTimeZone:OFF
-                        </arg>
+                        <arg>-Xplugin:ErrorProne -Xep:NullAway:ERROR -XepOpt:NullAway:OnlyNullMarked=true</arg>
                     </compilerArgs>
                     <failOnWarning>true</failOnWarning>
                     <annotationProcessorPaths>

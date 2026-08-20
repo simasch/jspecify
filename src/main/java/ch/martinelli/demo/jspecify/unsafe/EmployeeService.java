@@ -2,6 +2,7 @@ package ch.martinelli.demo.jspecify.unsafe;
 
 import ch.martinelli.demo.jspecify.safe.Employee;
 import ch.martinelli.demo.jspecify.safe.EmployeeRepository;
+import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 
 @Service("unsafeEmployeeService")
